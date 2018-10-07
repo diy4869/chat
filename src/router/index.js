@@ -25,6 +25,14 @@ const router = new Router({
       component: () => import('@/components/register')
     },
     {
+      path: '/noticeDetail',
+      name: 'noticeDetail/:id',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import('@/components/tab/noticeDetail')
+    },
+    {
       path: '/home',
       name: 'home',
       meta: {

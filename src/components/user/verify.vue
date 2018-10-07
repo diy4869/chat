@@ -1,5 +1,5 @@
 <template>
-  <transition name="fadeInRight" enter-active-class="fadeInRight">
+  <transition name="fadeRight" enter-active-class="fadeInRight" enter-leave-class="fadeInRight">
     <div class="verify">
       <mt-header fixed title="好友申请">
         <router-link to="notice" slot="left">
@@ -10,7 +10,7 @@
         <li v-for="(item, index) in data" :key="index">
           <img src="../../../static/img/22.jpg" alt="" class="icon">
           <div>
-            <span class="username">{{item.username}}</span>
+            <span class="username">{{users.username}}</span>
             <span class="account">{{item.verify_message === null ? '暂无数据': item.verify_message}}</span>
           </div>
           <mt-button type="primary" class="mint-button mint-button--primarymint-button--normal">{{data[0].isAgree === 0 ? '等待同意' : ''}}</mt-button>
@@ -24,7 +24,8 @@ import api from '../../api/api'
 export default {
   data () {
     return {
-      data: []
+      data: [],
+      users: []
     }
   },
   created () {
@@ -32,9 +33,9 @@ export default {
       user_id: localStorage.getItem('user_id'),
       token: localStorage.getItem('token')
     }).then(res => {
+      this.data = res.data.data
       console.log(res.data)
-      this.data = res.data.data[0]
-      console.log(res.data.data)
+      this.users = this.data[0].users[0]
     })
   }
 }
@@ -48,7 +49,7 @@ export default {
     position: relative;
   }
   ul {
-    height: 16.71rem;
+    height: 16.95rem;
     overflow: auto;
     li {
       display: flex;

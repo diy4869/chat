@@ -15,10 +15,6 @@
         <span>忘记密码</span>
       </li>
     </ul>
-    <!-- 注册 -->
-    <!-- <transition name="fadeInRight" enter-active-class="fadeInRight" enter-leave-class="fadeInRight">
-      <register v-if="clicked" :clicked="clicked" @back="back"></register>
-    </transition> -->
   </div>
 </template>
 <script>
@@ -36,8 +32,8 @@ export default {
       isShow: undefined,
       account: 1,
       password: '123456',
-      data: [],
-      transitionName: 'fadeInBottom'
+      data: []
+      // transitionName: 'fadeInBottom'
     }
   },
   methods: {
@@ -45,10 +41,10 @@ export default {
       this.clicked = !this.clicked
     },
     login () {
-      Indicator.open({
-        text: '加载中...',
-        spinnerType: 'fading-circle'
-      })
+      // Indicator.open({
+      //   text: '加载中...',
+      //   spinnerType: 'fading-circle'
+      // })
       send.userLogin({
         user_id: this.account,
         password: this.password
@@ -66,7 +62,7 @@ export default {
           localStorage.setItem('userInfo', JSON.stringify(this.data))
           console.log(this.data)
         } else {
-          alert('登陆失败')
+          return alert('登陆失败')
         }
       }).catch(err => {
         throw err
@@ -75,9 +71,6 @@ export default {
     back () {
       this.clicked = false
     }
-  },
-  beforeRouteUpdate (to, from, next) {
-    next()
   }
 }
 </script>
@@ -85,12 +78,11 @@ export default {
 
 .loginBox{
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
   top: 0;
   bottom: 0;
   background: url('../../static/img/33.jpg') no-repeat;

@@ -1,25 +1,23 @@
 <template>
-  <transition name="fadeInRight" enter-active-class="fadeInRight" enter-leave-class="fadeInRight">
-    <div class="registerBox">
-      <mt-header fixed title="注册">
-        <router-link to="/" slot="left">
-          <mt-button icon="back" @click="back">返回</mt-button>
-        </router-link>
-        <mt-button icon="more" slot=""></mt-button>
-      </mt-header>
-      <ul class="register">
-        <li>
-          <input type="text" placeholder="请输入用户名" v-model="username">
-        </li>
-        <li>
-          <input type="text" placeholder="请输入密码" v-model="password">
-        </li>
-        <li>
-          <mt-button type="primary" circle @click="register">注册</mt-button>
-        </li>
-      </ul>
-    </div>
-  </transition>
+  <div class="registerBox">
+    <mt-header fixed title="注册">
+      <router-link to="/" slot="left">
+        <mt-button icon="back" @click="back">返回</mt-button>
+      </router-link>
+      <mt-button icon="more" slot=""></mt-button>
+    </mt-header>
+    <ul class="register">
+      <li>
+        <input type="text" placeholder="请输入用户名" v-model="username">
+      </li>
+      <li>
+        <input type="text" placeholder="请输入密码" v-model="password">
+      </li>
+      <li>
+        <mt-button type="primary" circle @click="register">注册</mt-button>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 import send from '../api/api'
@@ -62,15 +60,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
-.vux-header{
-  width: 100%;
-  background: #409eff;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .registerBox{
   width: 100%;
   height: 100%;
@@ -82,7 +71,6 @@ export default {
   top: 0px;
   background: url('../../static/img/22.jpg') no-repeat;
   background-size: 100% 100%;
-  // transform: translateX(400px);
 }
 
 .register{
@@ -100,7 +88,6 @@ export default {
   input {
     width: 100%;
     height: 40px;
-    /*border: 1.5px solid rgb(6, 157, 245);*/
     text-indent: 1em;
     border: 0px solid transparent;
     border-radius: 5px
@@ -129,5 +116,4 @@ export default {
     font-size: 20px;
   }
 }
-
 </style>

@@ -1,13 +1,13 @@
-// <template>
-//   <!-- 底部菜单 -->
-//   <ul class="footer" v-show="show ? false : true">
-//     <router-link v-for="(item, index) in tab" :to="item.name" :key="index" tag="li">
-//       <span v-bind:class="['icon', item.icon]"></span>
-//       <span class="text">{{item.text}}</span>
-//     </router-link>
-//   </ul>
-// </template>
-// <script>
+<template>
+  <!-- 底部菜单 -->
+  <ul class="footer" v-show="show ? false : true">
+    <router-link v-for="(item, index) in tab" :to="item.name" :key="index" tag="li">
+      <span v-bind:class="['icon', item.icon]"></span>
+      <span class="text">{{item.text}}</span>
+    </router-link>
+  </ul>
+</template>
+<script>
 // export default {
 //   props: ['show'],
 //   data () {

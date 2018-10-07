@@ -1,5 +1,5 @@
 <template>
-  <transition name="slideInBottom"  enter-active-class="slideInBottom">
+  <transition name="fadeInRight"  enter-active-class="fadeInRight">
     <div class="addUser">
       <mt-header fixed title="添加好友">
         <router-link to="notice" slot="left">
@@ -36,6 +36,15 @@ export default {
       userInfo: JSON.parse(localStorage.getItem('searchData'))
     }
   },
+  watch: {
+    '$route' (to, from) {
+      console.log(to, from)
+      // return
+      // const toDepth = to.path.split('/').length
+      // const fromDepth = from.path.split('/').length
+      // this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    }
+  },
   methods: {
     add () {
       Indicator.open({
@@ -68,7 +77,6 @@ export default {
       })
     },
     socket (params) {
-      // const socket = io('ws://localhost:2333')
       this.$io.emit('addUser', params)
     }
   }

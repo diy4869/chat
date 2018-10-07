@@ -8,7 +8,7 @@
       <span> > </span>
     </router-link>
     <ul class="list">
-      <li>
+      <router-link tag="li" :to="{path: 'noticeDetail', query:{id: 1}}">
         <div>
           <img class="userIcon" src="../../../static/img/test.jpg" alt="">
         </div>
@@ -17,15 +17,19 @@
           <span>用户发的信息</span>
         </div>
         <div class="time">17:59</div>
-      </li>
-      <li>
-        <span>sdfa</span>
-      </li>
+      </router-link>
+      <router-link tag="li" :to="{path: 'noticeDetail', query:{id: 2}}">
+        <div>
+          <img class="userIcon" src="../../../static/img/test.jpg" alt="">
+        </div>
+        <div>
+          <span>用户名称</span>
+          <span>用户发的信息</span>
+        </div>
+        <div class="time">17:59</div>
+      </router-link>
     </ul>
     <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
-      <ul class="num">
-        <li v-for="(item, index) in list" :key="index">{{ item }}</li>
-      </ul>
     </mt-loadmore>
   </div>
 </template>
@@ -33,9 +37,7 @@
 export default {
   data () {
     return {
-      allLoaded: false,
-      list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      isAnime: false
+      allLoaded: false
     }
   },
   created () {

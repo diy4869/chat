@@ -1,5 +1,5 @@
 <template>
-  <transition name="fadeInRight" enter-active-class="fadeInRight">
+  <transition name="fadeRight" enter-active-class="fadeInRight">
     <div class="searchUser">
       <div class="search">
         <input type="text" placeholder="请输入账号进行搜索" autofocus="false" v-model="account">
@@ -71,20 +71,29 @@ export default {
       this.account = ''
     }
   },
+  watch: {
+    '$route' (to, from) {
+      console.log(to, from)
+      // return
+      // const toDepth = to.path.split('/').length
+      // const fromDepth = from.path.split('/').length
+      // this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    }
+  },
   computed: {
-    // ...mapState({
-    //   data: state => localStorage.setItem('searchData', JSON.stringify(state.search.data)),
-    //   isShow: state => state.search.isShow
-    // }),
-    // account: {
-    //   get: function () {
-    //     return this.$store.state.search.account
-    //   },
-    //   set: function (newValue) {
-    //     console.log(newValue)
-    //     this.$store.state.search.account = newValue
-    //   }
-    // }
+  // ...mapState({
+  //   data: state => localStorage.setItem('searchData', JSON.stringify(state.search.data)),
+  //   isShow: state => state.search.isShow
+  // }),
+  // account: {
+  //   get: function () {
+  //     return this.$store.state.search.account
+  //   },
+  //   set: function (newValue) {
+  //     console.log(newValue)
+  //     this.$store.state.search.account = newValue
+  //   }
+  // }
   }
 }
 </script>
@@ -136,13 +145,15 @@ export default {
         text-indent: 1em;
       }
       .cancel{
+        display: flex;
+        align-items: center;
         font-size: 0.6rem;
         color: #aab7c1;
+        margin: 0 0.1rem;
       }
       .mint-button--primary{
         height: 0.8rem;
         vertical-align: middle;
-        margin-left: 0.3rem;
         font-size: .4rem;
       }
     }
